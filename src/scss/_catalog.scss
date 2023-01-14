@@ -6,6 +6,8 @@
     display: flex;
     justify-content: center;
     margin-top: 50px;
+    padding: 0;
+    margin-bottom: 0;
 }
 
 .catalog-nav__item {
@@ -40,14 +42,21 @@
 
 .catalog__content {
     margin-top: 60px;
+    display: none;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    &-active {
+        display: flex;
+    }
 }
  
 .catalog-item {
     width: 303px;
-    min-height: 430px;
+    min-height: 442px;
     border: 2px solid#E8E8E8;
     padding: 20px 27px 20px 27px;
     overflow: hidden;
+    margin-bottom: 20px;
 }
 
 .catalog-item__wrapper {
@@ -57,7 +66,13 @@
 
 .catalog-item__content {
     width: 50%;
-    margin-right: 25px;
+    margin-right: 0px;
+    transform: translateX(-104%);
+    transition: .5s all;
+    &-active {
+        transform: translateX(0%);
+        margin-right: 25px;
+    }
 }
 
 .catalog-item__img {
@@ -86,20 +101,27 @@
     font-size: 14px;
     color: $red;
     text-decoration: underline;
+    text-transform: uppercase;
     text-align: center;
     margin-top: 10px;
     &:hover {
         text-decoration: none;
-        transition-duration: .2s;
     }
 }
 
 .catalog-item-list {
+    position: relative;
     margin: 0;
-    padding: 0;
-    padding-left: 10px;
+    padding: 0 10px 0 14px;
     width: 50%;
     margin-left: 25px;
+    transform: translateX(0%);
+    transition: .5s all;
+    &-active {
+        transform: translateX(-104%);
+        margin-left: 0px;
+    }
+
 }
 .catalog-item-list__item {
     position: relative;
@@ -108,7 +130,7 @@
     line-height: 21px;
     color: #555555;
     list-style-type: none;
-    margin-bottom: 5px;
+    margin-bottom: 10px;
     &:last-child {
         margin-bottom: 0; 
     }
@@ -124,9 +146,23 @@
     }
 }
 
+.catalog-item-list__back {
+    position: absolute;
+    font-weight: 500;
+    font-size: 14px;
+    color: #c70101;
+    text-decoration: underline;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(calc(-50% - 4px));
+    &:hover {
+        text-decoration: none;
+    }
+}
+
 hr {
     border-bottom: none;
-    margin: 17px 0;
+    margin: 20px 0 24px 0;
 }
 
 .catalog-item__footer {

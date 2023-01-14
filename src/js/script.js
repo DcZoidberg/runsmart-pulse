@@ -14,4 +14,30 @@ $(document).ready(function(){
         }
         ]
     });
+
+    $('ul.catalog-nav').on('click', 'li:not(.catalog-nav__item-active)', function() {
+        $(this)
+          .addClass('catalog-nav__item-active').siblings().removeClass('catalog-nav__item-active')
+          .closest('div.container').find('div.catalog__content').removeClass('catalog__content-active').eq($(this).index()).addClass('catalog__content-active');
+      });
+
+    // $('.catalog-item__link').each(function(i) {
+    //     $(this).on('click', function(e) {
+    //         e.preventDefault();
+    //         $('.catalog-item__content').eq(i).toggleClass('catalog-item__content-active');
+    //         $('.catalog-item-list').eq(i).toggleClass('catalog-item-list-active');
+    //     })
+    // })
+
+    function toogleSlide(item) {
+        $(item).each(function(i) {
+            $(this).on('click', function(e) {
+                e.preventDefault();
+                $('.catalog-item__content').eq(i).toggleClass('catalog-item__content-active');
+                $('.catalog-item-list').eq(i).toggleClass('catalog-item-list-active');
+            })
+        })
+    }
+    toogleSlide('.catalog-item__link');
+    toogleSlide('.catalog-item-list__back');
   });
