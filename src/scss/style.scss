@@ -1,0 +1,36 @@
+html {
+    box-sizing: border-box;
+}
+*, *:after, *:before {
+    box-sizing: inherit;
+}
+
+@import 'fonts';
+
+body {
+    font-family: 'Museo Sans Cyrl 300';
+    margin: 0;
+}
+
+.container {
+    max-width: 1010px;
+    margin: 0 auto;
+    padding: 0 30px 0 30px;
+}
+
+@import 'variables';
+
+@import 'button';
+
+@import 'title';
+
+@import 'promo';
+
+@import 'benefits';
+
+@import 'advice';
+
+@import 'carousel';
+
+@import 'catalog';
+

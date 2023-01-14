@@ -1,0 +1,66 @@
+.advice {
+    padding: 100px 0 100px 0;
+    background: url('../img/advice/bg2.png') center/cover no-repeat;
+    min-height: 680px;
+}
+
+.advice-subtitle {
+    max-width: 400px;
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 30px;
+    color: white;
+    margin-top: 10px;
+}
+
+.advice-form {
+    display: flex;
+    flex-direction: column;
+    input {
+        width: 303px;
+        height: 54px;
+        border-radius: 8px;
+        padding: 0 20px 0 20px;
+        border: none;
+        outline: none;
+        font-size: 14px;
+        color: #4B4B4B;
+        margin-top: 15px;
+        &:first-child {
+            margin-top: 30px;
+        }
+    }
+}
+
+@media(max-width: 992px) {
+    .advice-title {
+        font-size: 30px;
+        line-height: 42px;
+    }
+}
+
+@media(max-width: 495px) {
+    .advice {
+        min-height: 500px;
+        padding: 100px 0 80px 0;
+    }
+    .advice-title {
+        font-size: 20px;
+        line-height: 30px;
+        text-align: center;
+    }
+    .advice-subtitle {
+        display: none;
+    }
+    .advice-form {
+        align-items: center;
+        input {
+            width: 100%;
+            transition-duration: .2s;
+
+        }
+    }
+    .advice-button {
+        width: 100%;
+    }
+}
