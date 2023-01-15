@@ -13,7 +13,7 @@
     margin-top: 10px;
 }
 
-.advice-form {
+.feed-form {
     display: flex;
     flex-direction: column;
     input {
@@ -25,10 +25,18 @@
         outline: none;
         font-size: 14px;
         color: #4B4B4B;
-        margin-top: 15px;
+        margin-top: 10px;
+        margin-bottom: 10px;
         &:first-child {
             margin-top: 30px;
         }
+    }
+    .error {
+        border: 1px solid red;
+    }
+    label.error {
+        border: none;
+        color: red;
     }
 }
 
@@ -52,7 +60,7 @@
     .advice-subtitle {
         display: none;
     }
-    .advice-form {
+    .feed-form {
         align-items: center;
         input {
             width: 100%;

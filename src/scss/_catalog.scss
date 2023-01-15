@@ -121,7 +121,10 @@
         transform: translateX(-104%);
         margin-left: 0px;
     }
-
+    ul {
+        padding: 0;
+        margin: 0;
+    }
 }
 .catalog-item-list__item {
     position: relative;

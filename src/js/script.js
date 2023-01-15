@@ -32,4 +32,83 @@ $(document).ready(function(){
     }
     toogleSlide('.catalog-item__link');
     toogleSlide('.catalog-item-list__back');
+
+    // Modal
+    $('[data-modal="consultation"]').on('click', function() {
+        $('.overlay, #consultation').fadeIn();
+    });
+
+    $('.modal__close').on('click', function() {
+        $('.overlay, #consultation, #thanks, #order').fadeOut()
+    });
+
+    $('.catalog-item-button').each(function(i) {
+        $(this).on('click', function() {
+            $('#order .modal-form__subtitle').text($('.catalog-item__title').eq(i).text());
+            $('.overlay, #order').fadeIn();
+        })
+    });
+
+    function valideForms(form) {
+        $(form).validate({
+            rules: {
+                name: "required",
+                phone: "required",
+                email: {
+                    required: true,
+                    email: true
+                }
+            },
+            messages: {
+                name: "Пожалуйста, введите свое имя",
+                phone: "Пожалуйста, введите свой номер телефона",
+                email: {
+                    required: "Пожалуйста, введите свою почту",
+                    email: "Неправильно введен адрес почты"
+                }
+            }
+        });
+    };
+
+    valideForms('#consultation-form');
+    valideForms('#consultation');
+    valideForms('#order');
+    // phone mask
+    $('input[name=phone]').mask("+7 (999) 999-99-99");
+    //validated forms 
+    $('form').submit(function(e) {
+        e.preventDefault();
+        if (!$(this).valid()) {
+            return;
+    }   
+        $.ajax({
+            type: "POST",
+            url: "mailer/smart.php",
+            data: $(this).serialize()
+        }).done(function() {
+            $(this).find("input").val("");
+            $('#consultation, #order').fadeOut();
+            $('.overlay, #thanks').fadeIn();
+            $('form').trigger('reset');
+        });
+        return false; 
+    });
+
+
+    // scroll up and smooth scroll
+
+    $(window).scroll(function() {
+        if ($(this).scrollTop() > 1600) {
+            $('.pageup').fadeIn();
+        } else {
+            $('.pageup').fadeOut();
+        }
+    });
+
+    $("a[href^=#up]").click(function() {
+        const _href = $(this).attr("href");
+        $("html, body").animate({scrollTop: $(_href).offset().top+"px"});
+        return false;
+    });
+    
   });
